@@ -31,7 +31,7 @@ contract Farm {
 
 
   function stakeTokens(uint _amount) public {
-    require(_amount > 0, "You can not stake 0 tokens");
+    require(_amount != 0, "You can not stake 0 tokens");
 
     stakingToken.transferFrom(msg.sender, address(this), _amount);
     stakingBalance[msg.sender] += _amount;
@@ -44,7 +44,7 @@ contract Farm {
 
   function unstakeTokens() public {
     uint balance = stakingBalance[msg.sender];
-    require(balance > 0, "You do not have staked tokens");
+    require(balance != 0, "You do not have staked tokens");
 
     stakingToken.transfer(msg.sender, balance);
     delete stakingBalance[msg.sender];
@@ -71,7 +71,7 @@ contract Farm {
       address recipient = stakers[i];
       uint balance = stakingBalance[recipient];
 
-      if (balance > 0) {
+      if (balance != 0) {
         rewardToken.transfer(recipient, balance);
       }
 
