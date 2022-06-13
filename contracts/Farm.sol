@@ -7,7 +7,7 @@ import "./RewardToken.sol";
 
 contract Farm {
   
-  address public owner = msg.sender;
+  address public immutable owner = msg.sender;
 
   StakingToken public stakingToken;
   RewardToken public rewardToken;
@@ -66,6 +66,7 @@ contract Farm {
 
   function issueTokens() public onlyOwner {
     uint length = stakers.length;
+
     for (uint i; i < length;) {
       address recipient = stakers[i];
       uint balance = stakingBalance[recipient];
