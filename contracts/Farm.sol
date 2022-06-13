@@ -65,7 +65,8 @@ contract Farm {
   }
 
   function issueTokens() public onlyOwner {
-    for (uint i = 0; i < stakers.length;) {
+    uint length = stakers.length;
+    for (uint i; i < length;) {
       address recipient = stakers[i];
       uint balance = stakingBalance[recipient];
 
