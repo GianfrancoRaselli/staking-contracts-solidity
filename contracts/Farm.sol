@@ -24,7 +24,7 @@ contract Farm {
   }
 
 
-  constructor(StakingToken _stakingToken, RewardToken _rewardToken) {
+  constructor(StakingToken _stakingToken, RewardToken _rewardToken) payable {
     stakingToken = _stakingToken;
     rewardToken = _rewardToken;
   }

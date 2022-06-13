@@ -26,7 +26,7 @@ contract RewardToken {
   );
 
 
-  constructor() {
+  constructor() payable {
     balanceOf[msg.sender] = totalSupply;
   }
   

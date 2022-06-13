@@ -26,7 +26,7 @@ contract StakingToken {
   );
 
 
-  constructor() {
+  constructor() payable {
     balanceOf[msg.sender] = totalSupply;
   }
   
